@@ -3,6 +3,7 @@ import mainPizza from './img/pizza-3010062_1920.jpg';
 
 import './App.css';
 import CategoryBlock from './components/CategoryBlock';
+import { Router, Switch } from 'react-router';
 
 
 function Header(props) {
@@ -115,15 +116,23 @@ function Footer(props) {
   );
 }
 
+function Home() {
+  <react.Fragment>
+    <Header />
+    <MainBlock />
+    <CategoryBlock />         
+    <Footer />
+  </react.Fragment>
+}
+
 
 function App() {
   return(
-    <react.Fragment>
-      <Header />
-      <MainBlock />
-      <CategoryBlock />         
-      <Footer />
-    </react.Fragment>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home}/>
+      </Switch>
+    </Router>
   );
 }
 
