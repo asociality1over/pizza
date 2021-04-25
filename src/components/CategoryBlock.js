@@ -8,7 +8,7 @@ class CategoryBlock extends Component {
         this.pizzaCategoryClick = this.pizzaCategoryClick.bind(this);
         this.saladCategoryClick = this.saladCategoryClick.bind(this);
         this.drinkCategoryClick = this.drinkCategoryClick.bind(this);
-        this.state={category: 'pizza'}
+        this.state = {category: 'pizza'};
     }
     
     pizzaCategoryClick() {

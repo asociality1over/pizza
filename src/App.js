@@ -119,12 +119,16 @@ function Footer(props) {
 function Home() {
   return(
     <react.Fragment>
-    <Header />
-    <MainBlock />
-    <CategoryBlock />         
-    <Footer />
-  </react.Fragment>
+      <Header />
+      <MainBlock />
+      <CategoryBlock />
+      <Footer />
+    </react.Fragment>
   );  
+}
+
+function Login() {
+  
 }
 
 
@@ -132,7 +136,8 @@ function App() {
   return(    
     <Router>
       <Switch>
-        <Route path="/" component={Home}/>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/login" component={Login} />
       </Switch>
     </Router>
   );

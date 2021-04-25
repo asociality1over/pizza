@@ -6,10 +6,29 @@ import drink from  './img/berry-4201069_1920.jpg';
 class Card extends Component {
     constructor(props) {
         super(props);
+        
+        this.sizeSmallClick = this.sizeSmallClick.bind(this);
+        this.sizeMediumClick = this.sizeMediumClick.bind(this);
+        this.sizeBigClick = this.sizeBigClick.bind(this);
+        
+        this.state = {size: 1};
+    }
+    
+    sizeSmallClick() {
+        this.setState({size: 1});
+    }
+    
+    sizeMediumClick() {
+        this.setState({size: 2});
+    }
+    
+    sizeBigClick() {
+        this.setState({size: 3});
     }
     
     render() {
         const currentCategory = this.props.category;
+        const currentSize = this.state.size;
         
         return(
             <div class="p-1 xl:w-1/4 md:w-1/2 w-full container">
@@ -20,9 +39,9 @@ class Card extends Component {
                     <div class="container py-2 mx-auto">
                         <div class="flex flex-col text-center w-full mb-5">
                             <div class="flex mx-auto border-2 border-indigo-500 rounded overflow-hidden">
-                                <button class="py-1 border-r border-gray-200 px-4 bg-indigo-500 text-white focus:outline-none">{currentCategory=='pizza' ? '35 см' : currentCategory=='salad' ? '300 г' : '500 мг'}</button>
-                                <button class="py-1 border-r border-gray-200 px-4 text-gray-300 focus:outline-none">{currentCategory=='pizza' ? '30 см' : currentCategory=='salad' ? '200 г' : '350 мг'}</button>
-                                <button class="py-1 px-4 text-gray-300 focus:outline-none">{currentCategory=='pizza' ? '25 см' : currentCategory=='salad' ? '150 г' : '200 мг'}</button>
+                                <button onClick={this.sizeSmallClick} class={currentSize == 1 ? "py-1 border-r border-gray-200 px-4 bg-indigo-500 text-white focus:outline-none" : "py-1 border-r border-gray-200 px-4 text-gray-300 focus:outline-none"}>{currentCategory=='pizza' ? '35 см' : currentCategory=='salad' ? '300 г' : '500 мг'}</button>
+                                <button onClick={this.sizeMediumClick} class={currentSize == 2 ? "py-1 border-r border-gray-200 px-4 bg-indigo-500 text-white focus:outline-none" : "py-1 border-r border-gray-200 px-4 text-gray-300 focus:outline-none"}>{currentCategory=='pizza' ? '30 см' : currentCategory=='salad' ? '200 г' : '350 мг'}</button>
+                                <button onClick={this.sizeBigClick} class={currentSize == 3 ? "py-1 px-4 bg-indigo-500 text-white focus:outline-none" : "py-1 px-4 text-gray-300 focus:outline-none"}>{currentCategory=='pizza' ? '25 см' : currentCategory=='salad' ? '150 г' : '200 мг'}</button>
                             </div>
                         </div>
                     </div>
