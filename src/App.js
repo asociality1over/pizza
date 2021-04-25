@@ -28,11 +28,13 @@ function Header(props) {
           <a class="mr-5 hover:text-gray-900">Напитки</a>
           <a class="mr-5 hover:text-gray-900">Скидки</a>
         </nav>
+        <Link to={'/login'}>
         <button class="inline-flex items-center bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-base mt-4 p-5 md:mt-0 text-white shadow-xl">Войти
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
         </button>
+        </Link>
       </div>
     </header>
   )
@@ -128,7 +130,31 @@ function Home() {
 }
 
 function Login() {
-  
+  return(
+    <react.Fragment>
+      <Header />
+      <div className="container xl:mx-auto md:mx-auto xl:w-1/6 md:w-3/6 sm:w-full flex flex-col sm:mx-3">
+        <div className="xl:mt-48 mt-32 mb-6">
+          <h2 class="text-center font-semibold text-2xl mb-16">Приветствуем в ХаХа Пицце</h2>       
+          
+            <input type="email" id="required-email" class="border-transparent flex-1 appearance-none border-b border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:border-indigo-600 focus:border-2 focus:placeholder-white" name="email" placeholder="Ваш адрес электронной почты"/>
+            
+            <input type="password" id="password" class="mt-8 border-transparent flex-1 appearance-none border-b border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:border-indigo-600 focus:border-2 focus:placeholder-white" name="email" placeholder="Ваш пароль"/>
+
+            <div className="flex mt-16 items-center justify-between">
+              <a href="#" className="text-indigo-600">Регистрация</a>
+              
+              <button class="inline-flex items-center bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-base mt-4 p-5 md:mt-0 text-white shadow-xl">Войти
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </button>
+            </div>
+        </div>
+      </div>
+      <Footer />
+    </react.Fragment>
+  )
 }
 
 
