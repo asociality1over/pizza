@@ -31,17 +31,17 @@ class Card extends Component {
         const currentSize = this.state.size;
         
         return(
-            <div class="p-1 xl:w-1/4 md:w-1/2 w-full container">
-                <div class="h-full p-1 rounded-lg border-2 border-gray-400 flex flex-col relative overflow-hidden">          
+            <div class="xl:w-1/4 md:w-1/2 w-full container">
+                <div class="h-full rounded-lg border-2 border-gray-400 dark:border-gray-100 flex flex-col relative overflow-hidden">          
                 <img class="object-cover object-center rounded-t" alt="pizza Photo" src={currentCategory=='pizza' ? pizza : currentCategory=='salad' ? salad : drink} />
-                <h1 class="text-5xl text-gray-900 pb-4 mb-4 border-b border-gray-200 leading-none p-6 self-center">{currentCategory=='pizza' ? 'Пицца' : currentCategory=='salad' ? 'Салат' : 'Морс'}</h1> 
+                <h1 class="dark:text-gray-100 text-5xl text-gray-900 pb-4 mb-4 border-b border-gray-200 leading-none p-6 self-center">{currentCategory=='pizza' ? 'Пицца' : currentCategory=='salad' ? 'Салат' : 'Морс'}</h1> 
                 
                     <div class="container py-2 mx-auto">
                         <div class="flex flex-col text-center w-full mb-5">
                             <div class="flex mx-auto border-2 border-indigo-500 rounded overflow-hidden">
-                                <button onClick={this.sizeSmallClick} class={currentSize == 1 ? "py-1 border-r border-gray-200 px-4 bg-indigo-500 text-white focus:outline-none" : "py-1 border-r border-gray-200 px-4 text-gray-300 focus:outline-none"}>{currentCategory=='pizza' ? '35 см' : currentCategory=='salad' ? '300 г' : '500 мг'}</button>
-                                <button onClick={this.sizeMediumClick} class={currentSize == 2 ? "py-1 border-r border-gray-200 px-4 bg-indigo-500 text-white focus:outline-none" : "py-1 border-r border-gray-200 px-4 text-gray-300 focus:outline-none"}>{currentCategory=='pizza' ? '30 см' : currentCategory=='salad' ? '200 г' : '350 мг'}</button>
-                                <button onClick={this.sizeBigClick} class={currentSize == 3 ? "py-1 px-4 bg-indigo-500 text-white focus:outline-none" : "py-1 px-4 text-gray-300 focus:outline-none"}>{currentCategory=='pizza' ? '25 см' : currentCategory=='salad' ? '150 г' : '200 мг'}</button>
+                                <button onClick={this.sizeSmallClick} class={currentSize == 1 ? "dark:border-gray-600 py-1 border-r dark border-gray-200 px-4 bg-indigo-500 text-white focus:outline-none" : "dark:border-gray-600 py-1 border-r border-gray-200 px-4 text-gray-300 focus:outline-none"}>{currentCategory=='pizza' ? '35 см' : currentCategory=='salad' ? '300 г' : '500 мг'}</button>
+                                <button onClick={this.sizeMediumClick} class={currentSize == 2 ? "dark:border-gray-600 py-1 border-r border-gray-200 px-4 bg-indigo-500 text-white focus:outline-none" : "dark:border-gray-600 py-1 border-r border-gray-200 px-4 text-gray-300 focus:outline-none"}>{currentCategory=='pizza' ? '30 см' : currentCategory=='salad' ? '200 г' : '350 мг'}</button>
+                                <button onClick={this.sizeBigClick} class={currentSize == 3 ? "dark:border-gray-600 py-1 px-4 bg-indigo-500 text-white focus:outline-none" : "dark:border-gray-600 py-1 px-4 text-gray-300 focus:outline-none"}>{currentCategory=='pizza' ? '25 см' : currentCategory=='salad' ? '150 г' : '200 мг'}</button>
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@ class Card extends Component {
                             </svg>
                         </button>
                         
-                        <h3 class="text-2xl">{currentCategory=='pizza' ? '549 р.' : currentCategory=='salad' ? '159 р.' : '59 р.'}</h3>
+                        <h3 class="dark:text-gray-100 text-2xl">{currentCategory=='pizza' ? '549 р.' : currentCategory=='salad' ? '159 р.' : '59 р.'}</h3>
                     </div>         
                 </div>
             </div>

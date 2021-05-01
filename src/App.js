@@ -7,12 +7,25 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { useState } from 'react';
 
 
+
+function Button(props) {
+  return(
+    <button class="inline-flex items-center bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-base mt-4 p-5 md:mt-0 text-white shadow-xl">{props.text}
+    {props.arrow ? 
+      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+        <path d="M5 12h14M12 5l7 7-7 7"></path>
+      </svg> : null}      
+    </button>
+  );
+}
+
+
 function Header(props) {
   return (
-    <header class="text-gray-600 body-">
+    <header class="text-gray-600 dark:bg-gray-800">
       <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-        <svg width="40" height="40" viewBox="0 0 81 81" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="fill-current text-gray-100" width="40" height="40" viewBox="0 0 81 81" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="40.5" cy="40.5" r="38.5" transform="rotate(90 40.5 40.5)" stroke="black" stroke-width="4"/>
           <path d="M65.1725 34.3792C63.1538 34.3792 61.5173 32.7427 61.5173 30.724C61.5173 28.7053 63.1538 27.0688 65.1725 27.0688C67.1912 27.0688 68.8276 28.7053 68.8276 30.724C68.8276 32.7427 67.1912 34.3792 65.1725 34.3792Z" stroke="black" stroke-width="2"/>
           <circle cx="54.931" cy="40.0346" r="3.65517" transform="rotate(90 54.931 40.0346)" stroke="black" stroke-width="2"/>
@@ -21,21 +34,23 @@ function Header(props) {
           <path d="M65.1725 52.0689C63.1538 52.0689 61.5173 50.4324 61.5173 48.4137C61.5173 46.395 63.1538 44.7585 65.1725 44.7585C67.1912 44.7585 68.8276 46.395 68.8276 48.4137C68.8276 50.4324 67.1912 52.0689 65.1725 52.0689Z" stroke="black" stroke-width="2"/>
           <path d="M67.8844 11.3806L41.8603 41.9589M41.6714 39.1726L69.6473 64.2208" stroke="black" stroke-width="4"/>
         </svg>
-          <span class="ml-3 text-xl">ХаХа Пицца</span>
+          <span class="ml-3 text-xl dark:text-gray-100">ХаХа Пицца</span>
         </a>
         <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-          <a class="mr-5 hover:text-gray-900">Пиццы</a>
-          <a class="mr-5 hover:text-gray-900">Салаты</a>
-          <a class="mr-5 hover:text-gray-900">Напитки</a>
-          <a class="mr-5 hover:text-gray-900">Скидки</a>
+          <a class="mr-5 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark: classhover:cursor-pointer">Пиццы</a>
+          <a class="mr-5 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark: classhover:cursor-pointer">Салаты</a>
+          <a class="mr-5 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark: classhover:cursor-pointer">Напитки</a>
+          <a class="mr-5 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark: classhover:cursor-pointer">Скидки</a>
         </nav>
-        <Link to={'/login'}>
-        <button class="inline-flex items-center bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-base mt-4 p-5 md:mt-0 text-white shadow-xl">Войти
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
-        </button>
-        </Link>
+        
+        <div className="buttons flex justify-around w-1/6">
+          <Button text="Корзина" className="mr-5"/>
+          
+          <Link to={'/login'}>
+            <Button text="Войти" arrow="true"/>
+          </Link>
+        </div>
+        
       </div>
     </header>
   )
@@ -46,16 +61,16 @@ function Header(props) {
 
 function MainBlock(props) {
   return(
-    <section class="text-gray-600 body-font">
+    <section class="text-gray-600 body-font dark:bg-gray-800">
       <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
         <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
           <img class="shadow-xl object-cover object-center rounded" alt="pizza photo" src={mainPizza} />
         </div>
         <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Очень смешные,
+          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 dark:text-gray-100">Очень смешные,
             <br class="hidden lg:inline-block" />немного постироничные пиццы
           </h1>
-          <p class="mb-8 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel dictum nisl. Duis posuere orci non neque egestas viverra. Maecenas nec lectus sed lorem placerat feugiat. Nulla vulputate lacus mauris, vel tristique est bibendum at. Duis scelerisque ex id volutpat ullamcorper. Donec mattis sapien lorem, luctus sollicitudin velit.</p>
+          <p class="mb-8 leading-relaxed dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vel dictum nisl. Duis posuere orci non neque egestas viverra. Maecenas nec lectus sed lorem placerat feugiat. Nulla vulputate lacus mauris, vel tristique est bibendum at. Duis scelerisque ex id volutpat ullamcorper. Donec mattis sapien lorem, luctus sollicitudin velit.</p>
           <div class="flex justify-center">
             <button class="shadow-xl inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Перейти к каталогу</button>
           </div>
@@ -69,15 +84,15 @@ function MainBlock(props) {
 
 function Footer(props) {
   return(
-    <div>
-      <div class="border-t border-gray-200 mt-36">
+    <div className="dark:bg-gray-800">
+      <div class="border-t border-gray-200 dark:border-gray-600">
         <div class="container px-5 py-8 flex flex-wrap mx-auto items-center">
           <div class="flex md:flex-nowrap flex-wrap justify-center items-end md:justify-start">
             <div class="relative sm:w-64 w-40 sm:mr-4 mr-2">
               <label for="footer-field" class="leading-7 text-sm text-gray-600">Подпишитесь на рассылку</label>
-              <input placeholder="Ваш Email" type="text" id="footer-field" name="footer-field" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+              <input placeholder="Ваш Email" type="text" id="footer-field" name="footer-field" class="w-full bg-gray-100 bg-opacity-50 rounded border dark:border-gray-600 border-gray-300 focus:ring-2 focus:bg-transparent dark:text-gray-50 focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
             </div>
-            <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Подписаться</button>
+            <Button text="Подписаться" />
             <p class="text-gray-500 text-sm md:ml-6 md:mt-0 mt-2 sm:text-left text-center">Мы будем присылать вам
               <br class="lg:block hidden"/>информацию об акциях
             </p>
@@ -108,7 +123,7 @@ function Footer(props) {
           </span>
         </div>
       </div>
-      <div class="bg-gray-100">
+      <div class="bg-gray-100 dark:bg-gray-900">
         <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
           <p class="text-gray-500 text-sm text-center sm:text-left">
           </p>
@@ -205,11 +220,7 @@ function Login() {
               <div className="flex mt-16 items-center justify-between">
                   <a href="#" className="text-indigo-600">Регистрация</a>
                   
-                  <button disabled={!formValid} class={formValid ? "inline-flex items-center bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-base mt-4 p-5 md:mt-0 text-white shadow-xl" : "inline-flex items-center bg-indigo-100 border-0 py-2 px-6 focus:outline-none rounded text-base mt-4 p-5 md:mt-0 text-white cursor-default"}>Войти
-                      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                      </svg>
-                  </button>
+                  <Button text="Войти" />
               </div>
           </div>
       </div>

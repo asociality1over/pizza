@@ -28,7 +28,7 @@ class CategoryBlock extends Component {
         const currentCategory = this.state.category;
         
         return(
-            <React.Fragment>
+            <div className="dark:bg-gray-800 pb-36">
                 <SectionChoose category={currentCategory} onClickPizza={this.pizzaCategoryClick} onClickSalad={this.saladCategoryClick} onClickDrink={this.drinkCategoryClick} /> 
                 <div className="container mx-auto">
                     <div className="flex flex-wrap -m-4 justify-between">
@@ -37,7 +37,7 @@ class CategoryBlock extends Component {
                         <Card category={currentCategory} />
                     </div>
                 </div>     
-            </React.Fragment>            
+            </div>          
         );
     }
     
