@@ -44,7 +44,7 @@ function Header(props) {
         </nav>
         
         <div className="buttons flex justify-around w-1/6">
-          <Button text="Корзина" className="mr-5"/>
+          <Button text="Корзина" />
           
           <Link to={'/login'}>
             <Button text="Войти" arrow="true"/>
@@ -86,11 +86,11 @@ function Footer(props) {
   return(
     <div className="dark:bg-gray-800">
       <div class="border-t border-gray-200 dark:border-gray-600">
-        <div class="container px-5 py-8 flex flex-wrap mx-auto items-center">
+        <div class="container px-5 py-8 flex flex-wrap mx-auto items-center mt-1">
           <div class="flex md:flex-nowrap flex-wrap justify-center items-end md:justify-start">
             <div class="relative sm:w-64 w-40 sm:mr-4 mr-2">
               <label for="footer-field" class="leading-7 text-sm text-gray-600">Подпишитесь на рассылку</label>
-              <input placeholder="Ваш Email" type="text" id="footer-field" name="footer-field" class="w-full bg-gray-100 bg-opacity-50 rounded border dark:border-gray-600 border-gray-300 focus:ring-2 focus:bg-transparent dark:text-gray-50 focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+              <input placeholder="Ваш Email" type="text" id="footer-field" name="footer-field" class="dark:placeholder-gray-100 w-full bg-gray-100 bg-opacity-50 rounded border dark:border-gray-600 border-gray-300 focus:ring-2 focus:bg-transparent dark:text-gray-50 focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
             </div>
             <Button text="Подписаться" />
             <p class="text-gray-500 text-sm md:ml-6 md:mt-0 mt-2 sm:text-left text-center">Мы будем присылать вам
@@ -204,17 +204,17 @@ function Login() {
   
   
   return(
-    <react.Fragment>
+    <div className="dark:bg-gray-800">
       <Header />
-      <div className="container xl:mx-auto md:mx-auto xl:w-1/6 md:w-3/6 sm:w-full flex flex-col sm:mx-3">
+      <div className="mb-36 container xl:mx-auto md:mx-auto xl:w-1/6 md:w-3/6 sm:w-full flex flex-col sm:mx-3">
           <div className="xl:mt-48 mt-32 mb-6">
-              <h2 class="text-center font-semibold text-2xl mb-16">Приветствуем в ХаХа Пицце</h2>       
+              <h2 class="text-center font-semibold text-2xl mb-16 dark:text-gray-100">Приветствуем в ХаХа Пицце</h2>       
           
-              <input value={email} onChange={e => emailHandler(e)} onBlur={e => blurHandler(e)} type="email" id="required-email" class="border-transparent flex-1 appearance-none border-b border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:border-indigo-600 focus:border-2 focus:placeholder-white" name="email" placeholder="Ваш адрес электронной почты"/>
+              <input value={email} onChange={e => emailHandler(e)} onBlur={e => blurHandler(e)} type="email" id="required-email" class="border-transparent flex-1 appearance-none border-b border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 dark:text-gray-100 dark:placeholder-gray-100 dark:bg-gray-800 shadow-sm text-base focus:outline-none focus:border-indigo-600 focus:border-2 focus:placeholder-white" name="email" placeholder="Ваш адрес электронной почты"/>
               {(emailDirty && emailError) && <p class="text-sm pl-4 mt-1 text-red-500">{emailError}</p>}
               
               
-              <input value={password} onChange={e => passwordHandler(e)} onBlur={e => blurHandler(e)} type="password" id="password" class="mt-8 border-transparent flex-1 appearance-none border-b border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:border-indigo-600 focus:border-2 focus:placeholder-white" name="password" placeholder="Ваш пароль"/>
+              <input value={password} onChange={e => passwordHandler(e)} onBlur={e => blurHandler(e)} type="password" id="password" class="mt-8 border-transparent flex-1 appearance-none border-b border-gray-300 w-full py-2 px-4 bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-100 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:border-indigo-600 focus:border-2 focus:placeholder-white" name="password" placeholder="Ваш пароль"/>
               {(passwordDirty && passwordError) && <p class="text-sm pl-4 mt-1 text-red-500">{passwordError}</p>}
               
               <div className="flex mt-16 items-center justify-between">
@@ -225,7 +225,7 @@ function Login() {
           </div>
       </div>
       <Footer />
-    </react.Fragment>
+    </div>
   );
 }
 
