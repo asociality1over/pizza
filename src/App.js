@@ -24,6 +24,7 @@ function Header(props) {
   return (
     <header class="text-gray-600 dark:bg-gray-800">
       <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <Link to="/">
         <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
         <svg class="fill-current text-gray-100" width="40" height="40" viewBox="0 0 81 81" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="40.5" cy="40.5" r="38.5" transform="rotate(90 40.5 40.5)" stroke="black" stroke-width="4"/>
@@ -36,6 +37,7 @@ function Header(props) {
         </svg>
           <span class="ml-3 text-xl dark:text-gray-100">ХаХа Пицца</span>
         </a>
+        </Link>
         <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
           <a class="mr-5 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark: classhover:cursor-pointer">Пиццы</a>
           <a class="mr-5 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark: classhover:cursor-pointer">Салаты</a>
