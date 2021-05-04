@@ -222,7 +222,8 @@ function Login() {
               {(passwordDirty && passwordError) && <p class="text-sm pl-4 mt-1 text-red-500">{passwordError}</p>}
               
               <div className="flex mt-16 items-center justify-between">
-                  <a href="#" className="text-indigo-600">Регистрация</a>
+              <Link to="/signup"><a href="#" className="text-indigo-600">Регистрация</a></Link>
+                  
                   
                   <Button text="Войти" />
               </div>
