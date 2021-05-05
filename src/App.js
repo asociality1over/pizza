@@ -222,7 +222,8 @@ function Login() {
               {(passwordDirty && passwordError) && <p class="text-sm pl-4 mt-1 text-red-500">{passwordError}</p>}
               
               <div className="flex mt-16 items-center justify-between">
-                  <a href="#" className="text-indigo-600">Регистрация</a>
+              <Link to="/signup"><a href="#" className="text-indigo-600">Регистрация</a></Link>
+                  
                   
                   <Button text="Войти" />
               </div>
@@ -261,6 +262,65 @@ function Cart () {
   );
 }
 
+function Signup() {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailDirty, setEmailDirty] = useState(false);
+  const [passwordDirty, setPasswordDirty] = useState(false);
+  const [emailError, setEmailError] = useState('Поле не может быть пустым');
+  const [passwordError, setPasswordError] = useState('Поле не может быть пустым');
+  const [formValid, setFormValid] = useState(false);
+
+  const blurHandler = (e) => {
+    switch (e.target.name) {
+        case 'email':
+            setEmailDirty(true)
+            break
+        case 'password':
+            setPasswordDirty(true)
+            break
+    }
+}
+
+const passwordHandler = (e) => {
+  setPassword(e.target.value);
+  if (e.target.value.length < 8 || e.target.value.length > 32) {
+    setPasswordError('Пароль должен быть длинее 8 символов, но короче 32-х');
+    if (!e.target.value) {
+      setPasswordError('Поле не может быть пустым');
+    }
+  } else {
+    setPasswordError('');
+  }
+}
+
+
+  return(
+<div className="dark:bg-gray-800">
+      <Header />
+      <div className="mb-36 container xl:mx-auto md:mx-auto xl:w-1/6 md:w-3/6 sm:w-full flex flex-col sm:mx-3">
+          <div className="xl:mt-48 mt-32 mb-6">
+              <h2 class="text-center font-semibold text-2xl mb-16 dark:text-gray-100">Приветствуем в ХаХа Пицце</h2>       
+          
+              <input  onBlur={e => blurHandler(e)} type="email" id="required-email" class="border-transparent flex-1 appearance-none border-b border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 dark:text-gray-100 dark:placeholder-gray-100 dark:bg-gray-800 shadow-sm text-base focus:outline-none focus:border-indigo-600 focus:border-2 focus:placeholder-white" name="email" placeholder="Ваш адрес электронной почты"/> 
+              {(emailDirty && emailError) && <p class="text-sm pl-4 mt-1 text-red-500">{emailError}</p>}
+              <input onChange={e => passwordHandler(e)} onBlur={e => blurHandler(e)} type="password" id="password" class="mt-8 border-transparent flex-1 appearance-none border-b border-gray-300 w-full py-2 px-4 bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-100 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:border-indigo-600 focus:border-2 focus:placeholder-white" name="password" placeholder="Ваш пароль"/> 
+              {(passwordDirty && passwordError) && <p class="text-sm pl-4 mt-1 text-red-500">{passwordError}</p>}
+              <input onChange={e => passwordHandler(e)} onBlur={e => blurHandler(e)} type="password" id="password" class="mt-8 border-transparent flex-1 appearance-none border-b border-gray-300 w-full py-2 px-4 bg-white text-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-100 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:border-indigo-600 focus:border-2 focus:placeholder-white" name="password" placeholder="Подтвердите пароль"/>             
+              {(passwordDirty && passwordError) && <p class="text-sm pl-4 mt-1 text-red-500">{passwordError}</p>}        
+              <div className="flex mt-16 items-center justify-between">
+
+                  <a href="#" className="text-indigo-600">Уже есть аккаунт?</a>
+                  
+                  <Button text="Регистрация" />
+              </div>
+          </div>
+      </div>
+      <Footer />
+    </div>
+  )
+}
 
 function App() {
   return(    
@@ -269,6 +329,7 @@ function App() {
         <Route exact path="/" component={Home}/>
         <Route exact path="/login" component={Login} />
         <Route exact path="/cart" component={Cart} />
+        <Route exact path="/signup" component={Signup} />
       </Switch>
     </Router>
   );
